@@ -5,6 +5,8 @@
 - *Data*: [Download here](https://drive.google.com/file/d/1UeB6IZ04xK2N524JLi91FapzEGMhTP90/view?usp=sharing)
 
 ## 📂 Cấu trúc thư mục
+```
+
 SRCNN/
 │── data/                   # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
 │── dataset/                # Thư mục chứa dữ liệu huấn luyện mô hình
@@ -19,6 +21,7 @@ SRCNN/
 │── bicubic.py              # Script giảm độ phân giải ảnh bằng Bicubic
 │── psnr.py                 # Script đo PSNR ảnh màu và ảnh xám
 │── README.md               # Hướng dẫn sử dụng
+```
 
 ## 📜 Mô tả
 SRCNN (Super-Resolution Convolutional Neural Network) là một mô hình học sâu sử dụng mạng CNN để nâng cấp chất lượng hình ảnh từ độ phân giải thấp (LR) lên độ phân giải cao (HR). 
