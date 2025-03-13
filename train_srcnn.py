@@ -24,26 +24,29 @@ class SRCNN(nn.Module):
 
 # 2️⃣ Tiền xử lý dữ liệu
 class SRDataset(Dataset):
-    def __init__(self, root_dir, transform=None, image_size=(256, 256)):  # ✅ Thêm tham số image_size
-        self.root_dir = root_dir
+    def __init__(self, hr_dir, lr_dir, transform=None, image_size=(256, 256)):
+        self.hr_dir = hr_dir
+        self.lr_dir = lr_dir
         self.transform = transform
-        self.image_size = image_size  # ✅ Lưu kích thước ảnh chuẩn
-        self.image_filenames = [os.path.join(root_dir, f) for f in os.listdir(root_dir) if f.endswith(".png")]
+        self.image_size = image_size
+        self.image_filenames = [f for f in os.listdir(hr_dir) if f.endswith(".png")]
     
     def __len__(self):
         return len(self.image_filenames)
     
     def __getitem__(self, idx):
-        img = Image.open(self.image_filenames[idx]).convert("RGB")
+        hr_path = os.path.join(self.hr_dir, self.image_filenames[idx])
+        lr_path = os.path.join(self.lr_dir, self.image_filenames[idx].replace(".png", "x2.png"))
         
-        # ✅ Resize ảnh về cùng kích thước
-        img = img.resize(self.image_size, Image.BICUBIC)
+        if not os.path.exists(lr_path):
+            raise FileNotFoundError(f"Không tìm thấy ảnh LR: {lr_path}")
         
-        img_hr = self.transform(img)
-        img_lr = img.resize((self.image_size[0] // 2, self.image_size[1] // 2), Image.BICUBIC)
-        img_lr = img_lr.resize(self.image_size, Image.BICUBIC)
+        img_hr = Image.open(hr_path).convert("RGB").resize(self.image_size, Image.BICUBIC)
+        img_lr = Image.open(lr_path).convert("RGB").resize(self.image_size, Image.BICUBIC)
+        
+        img_hr = self.transform(img_hr)
         img_lr = self.transform(img_lr)
-        
+
         return img_lr, img_hr
 
 # 3️⃣ Cấu hình huấn luyện
@@ -51,13 +54,18 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BATCH_SIZE = 16
 EPOCHS = 10
 LEARNING_RATE = 1e-4
-IMAGE_SIZE = (256, 256)  # ✅ Chọn kích thước ảnh cố định
+IMAGE_SIZE = (256, 256)
 
 transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-dataset = SRDataset(root_dir="D:/srcnn/dataset/train/original", transform=transform, image_size=IMAGE_SIZE)
+dataset = SRDataset(
+    hr_dir="D:/srcnn/dataset/train/original",
+    lr_dir="D:/srcnn/dataset/train/DIV2K_train_LR_bicubic/X2",
+    transform=transform,
+    image_size=IMAGE_SIZE
+)
 dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True)
 
 # 4️⃣ Khởi tạo mô hình và tối ưu hóa
