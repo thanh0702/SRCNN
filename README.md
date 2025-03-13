@@ -8,7 +8,7 @@
 ```
 
 SRCNN/
-│── data/                              # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
+│── output/                            # Thư mục chứa dữ liệu hình ảnh đầu ra
 │── dataset/                           # Thư mục chứa dữ liệu huấn luyện mô hình
 │   │── train/                         # Thư mục huấn luyện mô hình
 │       │── original                   # Thư mục chứa ảnh HR pic để huấn luyện
