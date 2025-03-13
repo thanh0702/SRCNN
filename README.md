@@ -2,7 +2,6 @@
 
 ## 📥 Download Dataset & Data and LR
 - *Dataset*: [Download here](https://drive.google.com/file/d/1WUHVyr9ciQvitIe50UpCixUQB7xK43pQ/view?usp=sharing)
-- *Data*: [Download here](https://drive.google.com/file/d/1UeB6IZ04xK2N524JLi91FapzEGMhTP90/view?usp=sharing)
 - *LR*: [Download here](https://drive.google.com/file/d/1Quz8mDAOGogG_afxB8FfKLisoxGw--lf/view?usp=sharing)
 
 ## 📂 Cấu trúc thư mục
