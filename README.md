@@ -31,8 +31,7 @@ SRCNN/
 │── inference_srcnn.py                 # Script chạy mô hình để suy luận
 │── srcnn.pth                          # Tệp mô hình đã huấn luyện
 │── 3DoDoAnh.py                        # Script đo Tính Entropy, phương sai, độ tương phản ảnh
-│── ssim.py                            # Script đo SSIM ảnh màu
-│── grayssim.py                        # Script đo SSIM ảnh xá
+│── ssim.py                            # Script đo SSIM ảnh
 │── psnr.py                            # Script đo PSNR ảnh màu và ảnh xám
 │── README.md                          # Hướng dẫn sử dụng
 ```
