@@ -2,7 +2,7 @@
 
 ## 📥 Download Dataset and test
 - *Dataset*: [Download here](https://drive.google.com/file/d/1WUHVyr9ciQvitIe50UpCixUQB7xK43pQ/view?usp=sharing)
-- *test*: [Download here](https://drive.google.com/file/d/1Quz8mDAOGogG_afxB8FfKLisoxGw--lf/view?usp=sharing)
+- *test*: [Download here](https://drive.google.com/file/d/1HcaxxUXmyRsLcEqX5LL_TiiV9_2vvzm5/view?usp=sharing)
 
 ## 📂 Cấu trúc thư mục
 ```
