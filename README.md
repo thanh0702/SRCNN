@@ -32,8 +32,7 @@ SRCNN/
 │── srcnn.pth                          # Tệp mô hình đã huấn luyện
 │── 3DoDoAnh.py                        # Script đo Tính Entropy, phương sai, độ tương phản ảnh
 │── ssim.py                            # Script đo SSIM ảnh màu
-│── grayssim.py                        # Script đo SSIM ảnh xám
-│── bicubic.py                         # Script giảm độ phân giải ảnh bằng Bicubic
+│── grayssim.py                        # Script đo SSIM ảnh xá
 │── psnr.py                            # Script đo PSNR ảnh màu và ảnh xám
 │── README.md                          # Hướng dẫn sử dụng
 ```
