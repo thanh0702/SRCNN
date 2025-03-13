@@ -28,7 +28,7 @@ class SRDataset(Dataset):
         self.root_dir = root_dir
         self.transform = transform
         self.image_size = image_size  # ✅ Lưu kích thước ảnh chuẩn
-        self.image_filenames = [os.path.join(root_dir, f) for f in os.listdir(root_dir) if f.endswith(".jpg")]
+        self.image_filenames = [os.path.join(root_dir, f) for f in os.listdir(root_dir) if f.endswith(".png")]
     
     def __len__(self):
         return len(self.image_filenames)
