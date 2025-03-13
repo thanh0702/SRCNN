@@ -5,6 +5,7 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader, Dataset
 from PIL import Image
 import os
+import matplotlib.pyplot as plt
 
 # 1️⃣ Định nghĩa mô hình SRCNN
 class SRCNN(nn.Module):
@@ -73,7 +74,9 @@ model = SRCNN().to(DEVICE)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
-# 5️⃣ Vòng lặp huấn luyện
+# 5️⃣ Vòng lặp huấn luyện + Lưu lịch sử loss
+loss_history = []
+
 for epoch in range(EPOCHS):
     model.train()
     epoch_loss = 0
@@ -85,8 +88,26 @@ for epoch in range(EPOCHS):
         loss.backward()
         optimizer.step()
         epoch_loss += loss.item()
-    print(f"Epoch [{epoch+1}/{EPOCHS}], Loss: {epoch_loss/len(dataloader):.6f}")
+    
+    avg_loss = epoch_loss / len(dataloader)
+    loss_history.append(avg_loss)
+    print(f"Epoch [{epoch+1}/{EPOCHS}], Loss: {avg_loss:.6f}")
 
 # 6️⃣ Lưu mô hình
-torch.save(model.state_dict(), "D:/srcnn/srcnn.pth")
-print("✅ Huấn luyện hoàn tất, mô hình đã được lưu!")
+model_path = "D:/srcnn/srcnn.pth"
+torch.save(model.state_dict(), model_path)
+print(f"✅ Huấn luyện hoàn tất, mô hình đã được lưu tại: {model_path}")
+
+# 7️⃣ Vẽ biểu đồ loss
+plt.figure(figsize=(10, 5))
+plt.plot(range(1, EPOCHS + 1), loss_history, marker='o', linestyle='-')
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.title("Training Loss Over Epochs")
+plt.grid(True)
+
+# Lưu hình ảnh loss vào D:/srcnn
+loss_plot_path = "D:/srcnn/training_loss.png"
+plt.savefig(loss_plot_path)
+plt.show()
+print(f"✅ Biểu đồ loss đã được lưu tại: {loss_plot_path}")
