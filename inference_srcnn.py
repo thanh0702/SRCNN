@@ -3,8 +3,10 @@ import torch.nn as nn
 import torchvision.transforms as transforms
 from PIL import Image
 import numpy as np
+import tkinter as tk
+from tkinter import filedialog
 
-# 1️⃣ Định nghĩa mô hình SRCNN (giống như khi huấn luyện)
+# 1️⃣ Định nghĩa mô hình SRCNN 
 class SRCNN(nn.Module):
     def __init__(self, num_channels=3):
         super(SRCNN, self).__init__()
@@ -27,11 +29,11 @@ model.load_state_dict(torch.load("D:/srcnn/srcnn.pth", map_location=DEVICE))
 model.eval()
 
 # 3️⃣ Hàm xử lý ảnh đầu vào và chạy mô hình
-def enhance_image(image_path, output_path):
+def enhance_image(image_path):
     # Load ảnh
     img = Image.open(image_path).convert("RGB")
 
-    # Tăng kích thước ảnh để phù hợp với mô hình
+    # Tăng kích thước ảnh 
     img_lr = img.resize((img.width * 2, img.height * 2), Image.BICUBIC)
 
     # Chuyển ảnh sang tensor
@@ -47,11 +49,25 @@ def enhance_image(image_path, output_path):
     img_sr = np.clip(img_sr.transpose(1, 2, 0) * 255.0, 0, 255).astype(np.uint8)
     img_sr = Image.fromarray(img_sr)
 
-    # Lưu ảnh kết quả
+    # Lưu ảnh kết quả tại đường dẫn cố định
+    output_path = "D:/srcnn/output/output.png"
     img_sr.save(output_path)
     print(f"✅ Ảnh đầu ra đã được lưu tại: {output_path}")
 
-# 4️⃣ Sử dụng mô hình trên ảnh mẫu
-image_input = "D:/srcnn/data/low_res.jpg"  # Đường dẫn ảnh đầu vào
-image_output = "D:/srcnn/data/output.jpg"  # Đường dẫn lưu ảnh đầu ra
-enhance_image(image_input, image_output)
+# 4️⃣ Chọn ảnh từ hộp thoại
+def select_and_process_image():
+    root = tk.Tk()
+    root.withdraw()  # Ẩn cửa sổ chính
+
+    # Chọn ảnh đầu vào
+    image_input = filedialog.askopenfilename(title="Chọn ảnh cần xử lý", filetypes=[("PNG files", "*.png"), ("JPG files", "*.jpg"), ("All files", "*.*")])
+    
+    if not image_input:
+        print("❌ Không có ảnh nào được chọn.")
+        return
+
+    # Xử lý ảnh
+    enhance_image(image_input)
+
+# 5️⃣ Chạy chương trình
+select_and_process_image()
