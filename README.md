@@ -9,29 +9,32 @@
 ```
 
 SRCNN/
-│── data/                          # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
-│── dataset/                       # Thư mục chứa dữ liệu huấn luyện mô hình
-│   │── train/                     # Thư mục huấn luyện mô hình
-│       │── original               # Thư mục chứa ảnh HR pic để huấn luyện
-│           │── HR pic             # Thư mục chứa dữ liệu hình ảnh cao (HR pic)
-│── LR/                            # Thư mục chứa dữ liệu huấn luyện mô hình
-│   │── DIV2K_train_LR_bicubic/    # Thư mục thực nghiệm mô hình
-│       │── x2/                    # Thư mục chứa ảnh LR pic để thực nghiệm
-│           │── LR pic             # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
-│       │── x3/                    # Thư mục chứa ảnh LR pic để thực nghiệm
-│           │── LR pic             # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
-│       │── x4/                    # Thư mục chứa ảnh LR pic để thực nghiệm
-│           │── LR pic             # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
-│       │── x8/                    # Thư mục chứa ảnh LR pic để thực nghiệm
-│           │── LR pic             # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
-│── train_srcnn.py                 # Script huấn luyện mô hình
-│── inference_srcnn.py             # Script chạy mô hình để suy luận
-│── srcnn.pth                      # Tệp mô hình đã huấn luyện
-│── ssim.py                        # Script đo SSIM ảnh màu
-│── grayssim.py                    # Script đo SSIM ảnh xám
-│── bicubic.py                     # Script giảm độ phân giải ảnh bằng Bicubic
-│── psnr.py                        # Script đo PSNR ảnh màu và ảnh xám
-│── README.md                      # Hướng dẫn sử dụng
+│── data/                              # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
+│── dataset/                           # Thư mục chứa dữ liệu huấn luyện mô hình
+│   │── train/                         # Thư mục huấn luyện mô hình
+│       │── original                   # Thư mục chứa ảnh HR pic để huấn luyện
+│           │── HR pic                 # Thư mục chứa dữ liệu hình ảnh cao (HR pic)
+│       │── DIV2K_train_LR_bicubic/    # Thư mục thực nghiệm mô hình
+│           │── x2/                    # Thư mục chứa ảnh LR pic để thực nghiệm
+│               │── LR pic             # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
+│── LR/                                # Thư mục chứa dữ liệu huấn luyện mô hình
+│   │── DIV2K_train_LR_bicubic/        # Thư mục thực nghiệm mô hình
+│       │── x2/                        # Thư mục chứa ảnh LR pic để thực nghiệm
+│           │── LR pic                 # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
+│       │── x3/                        # Thư mục chứa ảnh LR pic để thực nghiệm
+│           │── LR pic                 # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
+│       │── x4/                        # Thư mục chứa ảnh LR pic để thực nghiệm
+│           │── LR pic                 # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
+│       │── x8/                        # Thư mục chứa ảnh LR pic để thực nghiệm
+│           │── LR pic                 # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
+│── train_srcnn.py                     # Script huấn luyện mô hình
+│── inference_srcnn.py                 # Script chạy mô hình để suy luận
+│── srcnn.pth                          # Tệp mô hình đã huấn luyện
+│── ssim.py                            # Script đo SSIM ảnh màu
+│── grayssim.py                        # Script đo SSIM ảnh xám
+│── bicubic.py                         # Script giảm độ phân giải ảnh bằng Bicubic
+│── psnr.py                            # Script đo PSNR ảnh màu và ảnh xám
+│── README.md                          # Hướng dẫn sử dụng
 ```
 
 ## 📜 Mô tả
