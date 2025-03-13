@@ -31,6 +31,7 @@ SRCNN/
 │── train_srcnn.py                     # Script huấn luyện mô hình
 │── inference_srcnn.py                 # Script chạy mô hình để suy luận
 │── srcnn.pth                          # Tệp mô hình đã huấn luyện
+│── 3DoDoAnh.py                        # Script đo Tính Entropy, phương sai, độ tương phản ảnh
 │── ssim.py                            # Script đo SSIM ảnh màu
 │── grayssim.py                        # Script đo SSIM ảnh xám
 │── bicubic.py                         # Script giảm độ phân giải ảnh bằng Bicubic
