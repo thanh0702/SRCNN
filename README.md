@@ -1,8 +1,8 @@
 # SRCNN
 
-## 📥 Download Dataset & Data and LR
+## 📥 Download Dataset and test
 - *Dataset*: [Download here](https://drive.google.com/file/d/1WUHVyr9ciQvitIe50UpCixUQB7xK43pQ/view?usp=sharing)
-- *LR*: [Download here](https://drive.google.com/file/d/1Quz8mDAOGogG_afxB8FfKLisoxGw--lf/view?usp=sharing)
+- *test*: [Download here](https://drive.google.com/file/d/1Quz8mDAOGogG_afxB8FfKLisoxGw--lf/view?usp=sharing)
 
 ## 📂 Cấu trúc thư mục
 ```
@@ -16,8 +16,10 @@ SRCNN/
 │       │── DIV2K_train_LR_bicubic/    # Thư mục thực nghiệm mô hình
 │           │── x2/                    # Thư mục chứa ảnh LR pic để thực nghiệm
 │               │── LR pic             # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
-│── LR/                                # Thư mục chứa dữ liệu huấn luyện mô hình
+│── test/                              # Thư mục chứa dữ liệu huấn luyện mô hình
 │   │── DIV2K_train_LR_bicubic/        # Thư mục thực nghiệm mô hình
+│       │── HR                         # Thư mục chứa ảnh HR pic để thực nghiệm
+│           │── HR pic                 # Thư mục chứa dữ liệu hình ảnh cao (HR pic)
 │       │── x2/                        # Thư mục chứa ảnh LR pic để thực nghiệm
 │           │── LR pic                 # Thư mục chứa dữ liệu hình ảnh thấp (LR pic)
 │       │── x3/                        # Thư mục chứa ảnh LR pic để thực nghiệm
